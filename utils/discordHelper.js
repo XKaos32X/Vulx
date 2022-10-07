@@ -9,6 +9,8 @@ const RPC = require("discord-rpc")
 const Logger = require('./Logger')
 const ConfigHelper = require('./ConfigHelper');
 const meHelper = require("./meHelper");
+const vP = require('../public/js/rpcCStatus');
+
 
 const rankIdToName = {
 	"-1": "Empty",
@@ -46,6 +48,19 @@ exports.rankIdToName = rankIdToName;
 const clientId = "948363491100721242";
 const client = new RPC.Client({ transport: 'ipc' });
 
+/* 
+vulx
+details 
+profile status aka state aka queueId
+large_text = text on image hover
+
+[2022-10-06T22:34:19.634Z][debug][vulx@CosmoXKaos] Updated Discord RPC :: {"details":"もし もし","state":"Hallo :)","assets":{"large_image":"logo","large_text":"Sucking at Valorant.","small_image":"10","small_text":"Silver 2"},"buttons":[{"label":"Discord","url":"https://www.youtube.com/watch?v=eBGIQ7ZuuiU&ab_channel=YouGotRickRolled"}]}
+so output was 
+vulx
+moshi moshi 
+hallo
+*/
+
 module.exports.refreshActivity = function() {
 	try {
 		if (!client) return;
@@ -53,7 +68,7 @@ module.exports.refreshActivity = function() {
 			ConfigHelper.getValorantConfig().then(valorantConfig => {
 				if(config.discordRpc) {
 					const activity = {
-						details : "プロフィールエディタ", //Profile Editor (Japanese)
+						details : "もし もし", //Profile editor プロフィールエディタ or Hello もし もし (Japanese)
 						state : `${valorantConfig.queueId.length < 128 ? valorantConfig.queueId : 'Playing Valorant' || 'Playing Valorant'}`,
 						assets : {
 							large_image : "logo",
@@ -61,7 +76,7 @@ module.exports.refreshActivity = function() {
 							small_image: `${valorantConfig.competitiveTier < 3 ? 0 : valorantConfig.competitiveTier || 'logo2'}`,
 							small_text: `${rankIdToName[valorantConfig.competitiveTier] || 'Cannot get rank.'}${valorantConfig.leaderboardPosition != 0 ? ` #${valorantConfig.leaderboardPosition}` : ''}`,
 						},
-						buttons : [{label : "Discord" , url : "https://discord.gg/vulx"},{label : "YouTube" , url : "https://youtube.com/aqua"}]
+						buttons : [{label : "YouTube" , url : "https://www.youtube.com/watch?v=eBGIQ7ZuuiU"}]
 					}
 					client.request('SET_ACTIVITY', {
 						pid: process.pid,
