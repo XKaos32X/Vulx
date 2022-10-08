@@ -1,1 +1,0 @@
-[2022-10-06T22:34:19.634Z][debug][vulx@CosmoXKaos] Updated Discord RPC :: {"details":"もし もし","state":"Hallo :)","assets":{"large_image":"logo","large_text":"Sucking at Valorant.","small_image":"10","small_text":"Silver 2"},"buttons":[{"label":"Discord","url":"https://www.youtube.com/watch?v=eBGIQ7ZuuiU&ab_channel=YouGotRickRolled"}]}
