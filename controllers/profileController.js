@@ -103,6 +103,7 @@ const updateSettings = catchAsync(async (req, res) => {
 		case "settingsIndex":
 			config.experimental = req.body.experimentalFeatures === "true" ? true : false;
 			config.discordRpc = req.body.discordRpc === "true" ? true : false;
+			config.discordRpcStatus = req.body.discordRpcStatus || "もし もし";
 			config.webTooltips = req.body.webTooltips === "true" ? true : false;
 			break;
 		case "settingsWelcome":

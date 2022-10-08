@@ -230,19 +230,7 @@
                                             </a>
                                         </div>
                                     </details>                                       
-                                </li>
-                                <form action="/getRpcStatus" method="POST"></form>                                   
-                                <li class="profile-no-swipe" id="Preset">
-                                    <details>
-                                        <summary>RPC Status<span class="instant"></span></summary>
-                                        <div style="width: 100%;" class="textBox">
-                                            <h5 class="textLabel">Custom Discord Status Message</h5>
-                                                <input class="searchBarInput" type="text" name="discStatus" id="rpcCustomStatus" placeholder="Enter custom rpc status. This will change もし もし to whatever you put." value="" autofocus> 
-                                            </div>
-                                            </a>
-                                        </div>
-                                    </details>                                        
-                                </li>                              
+                                </li>                                                             
                             </ol> 
                         </div>
                     </div>
@@ -318,6 +306,8 @@
                                         <option value="true">True</option>
                                         <option value="false">False</option>
                                     </select>
+                                <label style="font-size: 23px" for="discordRpcStatus">Custom Discord Status Message</label>
+                                    <input class="searchBarInput" type="text" name="discStatus" id="discordRpcStatus" placeholder="Enter custom rpc status. This will change もし もし to whatever you put." value="" autofocus>
                               </div>
                               <div class="form-group col-md-6">
                                 <label style="font-size: 23px" for="webTooltips">Tool Tips</label>
@@ -346,7 +336,6 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script type="module" src="/js/hierarchy.js"></script>
 <script type="module" src="js/app.js"></script>
-<script type="module" src="js/rpcCStatus.js"></script>
 <script>
     $(document).ready(function(){
         $('#dropdownTitles').hierarchySelect({

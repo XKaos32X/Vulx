@@ -7,8 +7,7 @@ let scripts = [
     '/js/vulx.request.reset.js',
     '/js/vulx.request.settings.js',
     '/js/vulx.request.session.js',
-    '/js/vulx.search.js',
-    '/js/rpcCStatus.js'
+    '/js/vulx.search.js'
 ];
 
 let create = (info) => {

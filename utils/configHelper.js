@@ -161,6 +161,7 @@ class Helper {
 		const config = {
 			port: 80,
 			discordRpc: false,
+			discordRpcStatus: "もし もし",
 			experimental: false,
 			firstLaunch: true,
 			webTooltips: true

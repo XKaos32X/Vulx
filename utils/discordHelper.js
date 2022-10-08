@@ -68,7 +68,7 @@ module.exports.refreshActivity = function() {
 			ConfigHelper.getValorantConfig().then(valorantConfig => {
 				if(config.discordRpc) {
 					const activity = {
-						details : "もし もし", //Profile editor プロフィールエディタ or Hello もし もし (Japanese)
+						details : `${config.discordRpcStatus}`,
 						state : `${valorantConfig.queueId.length < 128 ? valorantConfig.queueId : 'Playing Valorant' || 'Playing Valorant'}`,
 						assets : {
 							large_image : "logo",
