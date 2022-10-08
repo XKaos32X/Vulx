@@ -131,4 +131,5 @@ dist
 
 build/
 cfg/
+errors/
 licensekey.txt
