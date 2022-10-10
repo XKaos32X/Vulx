@@ -171,7 +171,7 @@
                             <ol id="profileThemes" class="listCont slippylist">
                                 <li class="profile-no-swipe" id="Status">
                                     <details>
-                                        <summary>Status <span class="instant"></span></summary>
+                                        <summary>Game Status <span class="instant"></span></summary>
                                         <div class="textBoxCont">
                                             <div style="width: 50%;" class="textBox">
                                                 <h5 class="textLabel">Profile Status</h5>
@@ -187,6 +187,16 @@
                                             </div>
                                         </div>
                                     </details>                                       
+                                </li>
+                                <form action="/updateStatus" method="POST"></form>                                   
+                                <li class="profile-no-swipe" id="Preset">
+                                    <details>
+                                        <summary>RPC Status<span class="instant"></span></summary>
+                                        <div style="width: 100%;" class="textBox">
+                                            <h5 class="textLabel">Custom Discord Status Message</h5>
+                                                <input class="searchBarInput" type="text" name="discStatus" id="discordRpcStatus" placeholder="Enter custom rpc status. This will change もし もし to whatever you put." value="もし もし" autofocus> 
+                                            </div>
+                                    </details>                                        
                                 </li>
                                 <li class="profile-no-swipe" id="Account">
                                     <details>
@@ -220,7 +230,8 @@
                                                 </a>
                                             </div>
                                     </details>                                       
-                                </li>  
+                                </li>
+                                <form action="/updateRpc" method="POST"></form>  
                                 <li class="profile-no-swipe" id="Preset">
                                     <details>
                                         <summary>System Message <span class="instant"></span></summary>
@@ -307,8 +318,8 @@
                                         <option value="true">True</option>
                                         <option value="false">False</option>
                                     </select>
-                                <label style="font-size: 23px" for="discordRpcStatus">Custom Discord Status Message</label>
-                                    <input class="searchBarInput" type="text" name="discStatus" id="discordRpcStatus" placeholder="Enter custom rpc status. This will change もし もし to whatever you put." value="" autofocus>
+                                <!--<label style="font-size: 23px" for="discordRpcStatus">Custom Discord Status Message</label>
+                                    <input class="searchBarInput" type="text" name="discStatus" id="discordRpcStatus" placeholder="Enter custom rpc status. This will change もし もし to whatever you put." value="" autofocus>-->
                               </div>
                               <div class="form-group col-md-6">
                                 <label style="font-size: 23px" for="webTooltips">Tool Tips</label>

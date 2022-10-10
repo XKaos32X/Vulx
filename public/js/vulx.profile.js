@@ -113,6 +113,26 @@ function selectStatus(id) {
     });  
 } window.selectStatus = selectStatus;
 
+function selectRpc(id) {
+    fetch('http://127.0.0.1:/updateRpc', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {
+                discordRpcStatus: id,
+            }
+        )
+    }).then((response) => {
+        Notification(true, "Status updated successfully!");
+        getProfile();
+    }).catch((error) => {
+        Notification(false, "An error occured while updating your Status!");
+    });  
+} window.selectRpc = selectRpc;
+
 function rankDropdownToggle(el) {
 	var rankDropdowns = document.querySelectorAll(".arrow-downV2");
 	rankDropdowns.forEach(rankDropdown => {

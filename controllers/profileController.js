@@ -1,8 +1,12 @@
-/* 
+ /* 
  * Copyright (C) Vulx - All Rights Reserved
  * Unauthorized copying of this file, via any medium is strictly prohibited
  * Proprietary and confidential
  * Written by Vulx Team <vulxdev@gmail.com>, 2022
+*/
+
+/*vulxConfig.discordRpcStatus = "もし もし"
+config.discordRpcStatus = req.body.discordRpcStatus || "もし もし";
 */
 
 // library definitions
@@ -22,7 +26,7 @@ const ValorantAPI = require('../utils/ValorantAPI');
 
 const updateStatus = catchAsync(async (req, res) => {
     const valConfig = await ConfigHelper.getValorantConfig();
-
+	
 	valConfig.sessionLoopState = "INGAME";
 	valConfig.partyId = "727";
 	valConfig.isValid = true;
@@ -53,6 +57,17 @@ const updateStatus = catchAsync(async (req, res) => {
 
 	await meHelper.updateRequest(valConfig);
     await res.status(httpStatus.OK).send();
+});
+
+const updateRpcStatus = catchAsync(async (req, res) => {
+	const valConfig = await ConfigHelper.getValorantConfig();
+	
+	valConfig.discordRpcStatus = $JSON.stringify(discordRpcStatus)
+
+	Logger.debug(`Status updated :: ${JSON.stringify(valConfig)}`);
+
+	await meHelper.updateRequest(valConfig);
+	await res.status(httpStatus.OK).send();
 });
 
 const getRequestsCount = catchAsync(async (req, res) => {
@@ -98,12 +113,11 @@ const updateSettings = catchAsync(async (req, res) => {
         Discord RPC: ${config.discordRpc} --> ${req.body.discordRpc}
         First Launch: ${config.firstLaunch} --> ${req.body.firstLaunch}
 		Web ToolTips: ${config.webTooltips} --> ${req.body.webTooltips}`);
-
+	
 	switch (req.body.updateType) {
 		case "settingsIndex":
 			config.experimental = req.body.experimentalFeatures === "true" ? true : false;
 			config.discordRpc = req.body.discordRpc === "true" ? true : false;
-			config.discordRpcStatus = req.body.discordRpcStatus || "もし もし";
 			config.webTooltips = req.body.webTooltips === "true" ? true : false;
 			break;
 		case "settingsWelcome":

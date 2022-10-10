@@ -103,6 +103,7 @@ class Helper {
 			partyState:'DEFAULT',
 			maxPartySize:5,
 			queueId:'Vulx - Valorant Profile Editor',
+			discordRpcStatus: 'Vulx - Valorant Profile Editor',
 			partyLFM:false,
 			partySize:1,
 			tournamentId:'',
@@ -161,7 +162,6 @@ class Helper {
 		const config = {
 			port: 80,
 			discordRpc: false,
-			discordRpcStatus: "もし もし",
 			experimental: false,
 			firstLaunch: true,
 			webTooltips: true

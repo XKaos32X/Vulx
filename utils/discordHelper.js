@@ -9,7 +9,6 @@ const RPC = require("discord-rpc")
 const Logger = require('./Logger')
 const ConfigHelper = require('./ConfigHelper');
 const meHelper = require("./meHelper");
-const vP = require('../public/js/rpcCStatus');
 
 
 const rankIdToName = {
@@ -68,7 +67,7 @@ module.exports.refreshActivity = function() {
 			ConfigHelper.getValorantConfig().then(valorantConfig => {
 				if(config.discordRpc) {
 					const activity = {
-						details : `${config.discordRpcStatus}`,
+						details : `${valorantConfig.discordRpcStatus !== "もし もし" ? valorantConfig.discordRpcStatus : valorantConfig.discordRpcStatus || "もし もし"}`,
 						state : `${valorantConfig.queueId.length < 128 ? valorantConfig.queueId : 'Playing Valorant' || 'Playing Valorant'}`,
 						assets : {
 							large_image : "logo",
